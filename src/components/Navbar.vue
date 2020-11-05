@@ -27,9 +27,6 @@
 
 <script>
 export default {
-  name: "Header",
-  computed: {},
-  methods: {},
-  components: {},
+  name: "Navbar"
 };
 </script>
