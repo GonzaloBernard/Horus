@@ -67,7 +67,7 @@ export default {
           // An error happened.
           console.log(error);
         });
-        this.$router.replace("home");
+        this.$router.replace("/home");
     },
   },
 
