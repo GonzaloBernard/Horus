@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'app-login'
+  name: 'home'
 }
 </script>

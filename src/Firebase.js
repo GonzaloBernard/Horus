@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import 'firebase/app';
 import 'firebase/auth';
+import store from "./store";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -16,3 +17,13 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    store.dispatch({type:'setUser', email:user.email})
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});

@@ -1,7 +1,6 @@
 <template>
   <div>
     <b-navbar toggleable="sm" type="dark" variant="dark">
-      
       <!-- Opciones del menú que son colapsables -->
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -12,8 +11,10 @@
           <b-nav-item href="#/contact">Contacto</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
-      
-      <!-- Formulario de LogIn -->
+      <b-button class="ml-auto" @click="login"> LOGIN </b-button>
+      <b-button class="ml-auto"> {{ currentUser }} </b-button>
+      <b-button class="ml-auto" @click="logout"> LOGOUT </b-button>
+      <!-- Formulario de LogIn
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
           <div class="container">
@@ -33,7 +34,7 @@
           </div>
         </b-nav-form>
       </b-navbar-nav>
-      
+      Formulario de LogIn -->
     </b-navbar>
   </div>
 </template>
@@ -48,19 +49,32 @@ export default {
     return {
       email: "",
       password: "",
+      user: this.currentUser,
     };
   },
   methods: {
-    logIn() {
+    login() {
+      this.$router.replace("login");
+    },
+    logout() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.$router.replace("private");
+        .signOut()
+        .then(function () {
+          // Sign-out successful.
         })
         .catch(function (error) {
-          console.log(error.message);
+          // An error happened.
+          console.log(error);
         });
+        this.$router.replace("home");
+    },
+  },
+
+  computed: {
+    currentUser: function () {
+      //console.log(this.$store.state.user.data.email);
+      return this.$store.state.usuario;
     },
   },
 };
