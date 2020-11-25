@@ -23,7 +23,6 @@ import firebase from "firebase/app";
 import "firebase/app";
 import "firebase/auth";
 import { mapGetters /*mapActions*/ } from "vuex";
-import store from '../store'
 
 export default {
   name: "Navbar",
@@ -43,9 +42,9 @@ export default {
         .auth()
         .signOut()
         .then(function () {
-          store.commit("setNewCurrentUser", null);
+          this.$store.commit("setNewCurrentUser", null);
           // Sign-out successful.
-        })
+        }.bind(this))
         .catch(function (error) {
           // An error happened.
           console.log(error);
