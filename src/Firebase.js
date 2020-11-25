@@ -20,7 +20,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    store.dispatch({type:'setUser', email:user.email})
+    store.dispatch({type:'setCurrentUser', email:user.email})
     // ...
   } else {
     // User is signed out.

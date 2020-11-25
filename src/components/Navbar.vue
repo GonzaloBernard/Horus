@@ -12,29 +12,8 @@
         </b-navbar-nav>
       </b-collapse>
       <b-button class="ml-auto" @click="login"> LOGIN </b-button>
-      <b-button class="ml-auto"> {{ currentUser }} </b-button>
+      <b-button class="ml-auto"> {{ getCurrentUser }} </b-button>
       <b-button class="ml-auto" @click="logout"> LOGOUT </b-button>
-      <!-- Formulario de LogIn
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <div class="container">
-            <form class="row" @submit.prevent="logIn">
-              <div class="col-sm">
-                <label for="">
-                  <input type="text" v-model="email" />
-                </label>
-              </div>
-              <div class="col-sm">
-                <label for="">
-                  <input type="password" v-model="password" />
-                </label>
-              </div>
-              <div class="col-sm"><input type="submit" value="Login" /></div>
-            </form>
-          </div>
-        </b-nav-form>
-      </b-navbar-nav>
-      Formulario de LogIn -->
     </b-navbar>
   </div>
 </template>
@@ -43,39 +22,36 @@
 import firebase from "firebase/app";
 import "firebase/app";
 import "firebase/auth";
+import { mapGetters /*mapActions*/ } from "vuex";
+import store from '../store'
+
 export default {
   name: "Navbar",
   data() {
     return {
       email: "",
       password: "",
-      user: this.currentUser,
+      user: "",
     };
   },
   methods: {
     login() {
       this.$router.replace("login");
     },
-    logout() {
-      firebase
+    async logout() {
+      firebase.default
         .auth()
         .signOut()
         .then(function () {
+          store.commit("setNewCurrentUser", null);
           // Sign-out successful.
         })
         .catch(function (error) {
           // An error happened.
           console.log(error);
         });
-        this.$router.replace("/home");
     },
   },
-
-  computed: {
-    currentUser: function () {
-      //console.log(this.$store.state.user.data.email);
-      return this.$store.state.usuario;
-    },
-  },
+  computed: mapGetters(["getCurrentUser"]),
 };
 </script>
