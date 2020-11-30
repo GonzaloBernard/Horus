@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="container">
-      <h1>Inicie sesión</h1>
+      <h1>Iniciar sesión</h1>
       <form class="row" @submit.prevent="logIn">
         <div class="col-sm">
           <label for="">
-            <input type="text" v-model="loginEmail" />
+            <input type="text" v-model="loginEmail" placeholder='Correo Electrónico'/>
           </label>
         </div>
         <div class="col-sm">
           <label for="">
-            <input type="password" v-model="loginPassword" />
+            <input type="password" v-model="loginPassword" placeholder='Contraseña'/>
           </label>
         </div>
         <div class="col-sm"><input type="submit" value="Login" /></div>
@@ -21,15 +21,20 @@
       <form class="row" @submit.prevent="createAcount">
         <div class="col-sm">
           <label for="">
-            <input type="text" v-model="email" />
+            <input type="text" v-model="email" placeholder='Correo Electrónico'/>
           </label>
         </div>
         <div class="col-sm">
           <label for="">
-            <input type="password" v-model="password" />
+            <input type="password" v-model="password" placeholder='Contraseña'/>
           </label>
         </div>
-        <div class="col-sm"><input type="submit" value="CreateAccount" /></div>
+        <div class="col-sm">
+          <label for="">
+            <input type="passwordConfirm" v-model="passwordConfirm" placeholder='Confirmar Contraseña'/>
+          </label>
+        </div>
+        <div class="col-sm"><input type="submit" value="Crear Cuenta" /></div>
       </form>
     </div>
   </div>
@@ -47,6 +52,7 @@ export default {
       loginPassword: "",
       email:"",
       password:"",
+      passwordConfirm:"",
     };
   },
   methods: {
@@ -55,7 +61,7 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.loginEmail, this.loginPassword)
         .then(() => {
-          this.$router.replace("home");
+          this.$router.replace("/");
         })
         .catch(function (error) {
           console.log(error.message);

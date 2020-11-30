@@ -11,9 +11,15 @@
           <b-nav-item href="#/contact">Contacto</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
-      <b-button class="ml-auto" @click="login"> LOGIN </b-button>
-      <b-button class="ml-auto"> {{ getCurrentUser }} </b-button>
-      <b-button class="ml-auto" @click="logout"> LOGOUT </b-button>
+      <b-button v-if="getCurrentUser === null" class="ml-auto" @click="login">
+        LOGIN
+      </b-button>
+      <b-button v-if="getCurrentUser !== null" class="ml-auto">
+        {{ getCurrentUser }}
+      </b-button>
+      <b-button v-if="getCurrentUser !== null" class="ml-auto" @click="logout">
+        LOGOUT
+      </b-button>
     </b-navbar>
   </div>
 </template>
@@ -35,16 +41,21 @@ export default {
   },
   methods: {
     login() {
-      this.$router.replace("login");
+      // Si la ruta actual es /login, no hacer nada. Caso contrario redirigir a /login
+      if (this.$route.path !== "/login") {
+        this.$router.replace("login");
+      }
     },
     async logout() {
       firebase.default
         .auth()
         .signOut()
-        .then(function () {
-          this.$store.commit("setNewCurrentUser", null);
-          // Sign-out successful.
-        }.bind(this))
+        .then(
+          function () {
+            this.$store.commit("setNewCurrentUser", null);
+            // Sign-out successful.
+          }.bind(this)
+        )
         .catch(function (error) {
           // An error happened.
           console.log(error);
