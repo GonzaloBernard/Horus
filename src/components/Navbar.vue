@@ -11,9 +11,15 @@
           <b-nav-item href="#/contact">Contacto</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
-      <b-button v-if="getCurrentUser === null" class="ml-auto" @click="login">
+      <!-- Mostrar boton LOGIN si no hay usuario conectado y la pagina actual no es login -->
+      <b-button
+        v-if="getCurrentUser === null && this.$route.path !== '/login'"
+        class="ml-auto"
+        @click="login"
+      >
         LOGIN
       </b-button>
+      <!-- Mostrar usuario y boton LOGOUT si hay usuario conectado -->
       <b-button v-if="getCurrentUser !== null" class="ml-auto">
         {{ getCurrentUser }}
       </b-button>
@@ -53,12 +59,16 @@ export default {
         .then(
           function () {
             this.$store.commit("setNewCurrentUser", null);
+            // Redirigir a Home despues de cerrar sesion
+            if (this.$route.path !== "/") {
+              this.$router.replace("/");
+            }
             // Sign-out successful.
           }.bind(this)
         )
         .catch(function (error) {
           // An error happened.
-          console.log(error);
+          console.log(error.message);
         });
     },
   },
