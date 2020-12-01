@@ -17,7 +17,7 @@
         class="ml-auto"
         @click="login"
       >
-        LOGIN
+        INGRESAR
       </b-button>
       <!-- Mostrar boton CREAR CUENTA si no hay usuario conectado y la pagina actual no es login -->
       <b-button
@@ -32,7 +32,7 @@
         {{ getCurrentUser }}
       </b-button>
       <b-button v-if="getCurrentUser !== null" class="ml-auto" @click="logout">
-        LOGOUT
+        SALIR
       </b-button>
     </b-navbar>
   </div>

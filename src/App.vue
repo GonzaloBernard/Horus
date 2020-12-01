@@ -19,4 +19,5 @@ export default {
 </script>
 
 <style>
+.btn{margin:5px;}
 </style>
