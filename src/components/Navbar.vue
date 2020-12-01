@@ -19,6 +19,14 @@
       >
         LOGIN
       </b-button>
+      <!-- Mostrar boton CREAR CUENTA si no hay usuario conectado y la pagina actual no es login -->
+      <b-button
+        v-if="getCurrentUser === null && this.$route.path !== '/createAccount'"
+        class="ml-auto"
+        @click="createAccount"
+      >
+        CREAR CUENTA
+      </b-button>
       <!-- Mostrar usuario y boton LOGOUT si hay usuario conectado -->
       <b-button v-if="getCurrentUser !== null" class="ml-auto">
         {{ getCurrentUser }}
@@ -52,7 +60,13 @@ export default {
         this.$router.replace("login");
       }
     },
-    async logout() {
+    createAccount() {
+      // Si la ruta actual es /createAccount, no hacer nada. Caso contrario redirigir a /createAccount
+      if (this.$route.path !== "/createAccount") {
+        this.$router.replace("createAccount");
+      }
+    },
+    logout() {
       firebase.default
         .auth()
         .signOut()
