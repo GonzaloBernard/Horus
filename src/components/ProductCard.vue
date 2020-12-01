@@ -25,15 +25,15 @@ export default {
     return {
       // Prouctos HARDCODEADOS levantados por el card-group -- REEMPLAZAR POR CONEXION CON FIRESTORE
       products: [
-        { id: 1, name: "Frutilla", img:"https://picsum.photos/600/300/?image=25" },
-        { id: 2, name: "Banana", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 3, name: "Manzana", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 4, name: "Pera", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 5, name: "Durazno", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 6, name: "Mango", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 7, name: "Ciruela", img:"https://picsum.photos/600/300/?image=25"  },
-        { id: 8, name: "Frambuesa", img:"https://picsum.photos/600/300/?image=25" },
-        { id: 9, name: "Kiwi", img:"https://picsum.photos/600/300/?image=25"  },
+        { id: 1, name: "i5 7400", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f" },
+        { id: 2, name: "Banana", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 3, name: "Manzana", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 4, name: "Pera", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 5, name: "Durazno", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 6, name: "Mango", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 7, name: "Ciruela", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
+        { id: 8, name: "Frambuesa", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f" },
+        { id: 9, name: "Kiwi", img:"https://firebasestorage.googleapis.com/v0/b/horus-1f822.appspot.com/o/i5-image.jpg?alt=media&token=db403cf4-2de6-4548-8b76-3c9ba286262f"  },
       ],
     };
   },

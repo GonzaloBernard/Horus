@@ -1,10 +1,10 @@
 <template>
   <div id="products">
     <b-row>
-      <b-col cols="2">
+      <b-col cols="4">
         <filter-menu />
       </b-col>
-      <b-col cols="10">
+      <b-col>
         <product-card />
       </b-col>
     </b-row>
@@ -20,3 +20,7 @@ export default {
   name: "Products",
 };
 </script>
+
+<style scoped>
+div{margin:5px}
+</style>
