@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 import store from "./store";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -27,3 +28,4 @@ firebase.auth().onAuthStateChanged(function(user) {
     // ...
   }
 });
+store.commit('SET_DATABASE', firebase.firestore());

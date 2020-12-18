@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-import firebase from "firebase/app";
-import 'firebase/app';
+
+
 import 'firebase/auth';
   export default {
     name: 'private',
     methods: {
       logOut() {
-        firebase
+        this.firebase
           .auth()
           .signOut()
             .then( () => {
