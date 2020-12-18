@@ -7,6 +7,7 @@ const state = {
 };
 
 const actions = {
+  // Esta accion lee por unica vez (sin real time update) los productos
   fetchProductos({ commit }) {
     state.db
       .collection("productos")

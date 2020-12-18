@@ -24,6 +24,7 @@ import { mapGetters /*,  mapActions */} from "vuex";
 export default {
   name: "Navbar",
   mounted() {
+    //Cuando el componente esta listo se pide al store que actualize los productos
     this.$store.dispatch("fetchProductos");
   },
   computed: mapGetters(["getProductos"]),
