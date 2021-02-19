@@ -1,4 +1,6 @@
 # horus
+Production 
+https://horustecnologias.netlify.app/
 
 ## Project setup
 ```
