@@ -9,6 +9,7 @@
           <b-nav-item href="#/products">Productos</b-nav-item>
           <b-nav-item href="#/build">Armá tu Build</b-nav-item>
           <b-nav-item href="#/contact">Contacto</b-nav-item>
+          <b-nav-item href="#/compras">Comprar</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
       <!-- Mostrar boton LOGIN si no hay usuario conectado y la pagina actual no es login -->
@@ -28,10 +29,10 @@
         CREAR CUENTA
       </b-button>
       <!-- Mostrar usuario y boton LOGOUT si hay usuario conectado -->
-      <b-button v-if="getCurrentUser !== null" class="ml-auto">
+      <b-button v-if="getCurrentUser !== null" class="ml-auto Usuario">
         {{ getCurrentUser }}
       </b-button>
-      <b-button v-if="getCurrentUser !== null" class="ml-auto" @click="logout">
+      <b-button v-if="getCurrentUser !== null" class="ml-auto Usuario" @click="logout">
         SALIR
       </b-button>
     </b-navbar>
@@ -89,3 +90,10 @@ export default {
   computed: mapGetters(["getCurrentUser"]),
 };
 </script>
+
+<style scoped>
+
+.Usuario {
+  background: red;
+}
+</style>

@@ -56,8 +56,16 @@ const routes = [
     component: () => import("../views/Private.vue"),
     meta: {
       requiresAuth: true
-    },
-  }
+    }},
+  {
+      path: '/Compras',
+      name: 'Compras',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/Compras.vue')
+    }
+ 
 ]
 
 const router = new VueRouter({

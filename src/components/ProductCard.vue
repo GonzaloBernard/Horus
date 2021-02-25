@@ -22,7 +22,7 @@
 import { mapGetters /*,  mapActions */} from "vuex";
 
 export default {
-  name: "Navbar",
+  name: "ProductCard",
   mounted() {
     //Cuando el componente esta listo se pide al store que actualize los productos
     this.$store.dispatch('bindProductos');

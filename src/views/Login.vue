@@ -33,6 +33,12 @@
       <b-button type="submit" variant="primary">Iniciar sesión</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
+    <hr>
+    
+      <button @click="socialLogin" class="social-button">
+        <img alt="Google Logo" src="../assets/google-logo.png">
+      </button>
+    <p>O inicie sesión con Google</p>
   </div>
 </template>
 
@@ -74,12 +80,37 @@ export default {
       console.log("Validar datos: " + email + password);
       return true;
     },
-  },
-};
+  socialLogin() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then((result) => {
+          alert(result);
+          this.$router.replace('home');
+        }).catch((err) => {
+          alert('Oops. ' + err.message)
+        });
+      },
+}
+}
 </script>
 
 <style scoped>
 div {
   margin: 20px;
 }
+
+.social-button {
+    width: 75px;
+    background: white;
+    padding: 10px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    outline: 0;
+    border: 0;
+  }
+  .social-button:active {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  }
+  .social-button img {
+    width: 100%;
+  }
 </style>

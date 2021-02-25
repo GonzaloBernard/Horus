@@ -2,7 +2,7 @@
   <div>
     <!-- MENU VERTICAL PARA GESTIONAR LOS FILTROS Y ORDEN DE PRODUCTOS -->
     <b-nav vertical>
-      <b-nav-item @click="limpiarFiltro">LIMPIPAR FILTRO y ORDEN</b-nav-item>
+      <b-nav-item @click="limpiarFiltro">LIMPAR FILTRO y ORDEN</b-nav-item>
       <b-nav-item @click="orderbyNombre">Ordenar por id</b-nav-item>
       <b-nav-item @click="orderbyPrice">Ordenar por precio</b-nav-item>
       <!-- Lista de categorias -->
