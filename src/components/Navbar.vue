@@ -30,11 +30,14 @@
         CREAR CUENTA
       </b-button>
       <!-- Mostrar usuario y boton LOGOUT si hay usuario conectado -->
-      <b-button v-if="getCurrentUser !== null" class="ml-auto Usuario">
+      <b-button variant="light" v-if="getCurrentUser !== null" class="ml-auto Usuario">
         {{ getCurrentUser }}
+        <b-icon icon="person-fill"></b-icon> 
       </b-button>
-      <b-button v-if="getCurrentUser !== null" class="ml-auto Usuario" @click="logout">
+      
+      <b-button variant="light" v-if="getCurrentUser !== null" class="ml-auto Usuario" @click="logout">
         SALIR
+           <b-icon icon="power" aria-hidden="true"></b-icon>
       </b-button>
     </b-navbar>
   </div>
