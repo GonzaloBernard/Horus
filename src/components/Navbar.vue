@@ -5,15 +5,16 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#/">HORUS</b-nav-item>
-          <b-nav-item href="#/products">Productos</b-nav-item>
-          <b-nav-item href="#/build">Armá tu Build</b-nav-item>
-          <b-nav-item href="#/contact">Contacto</b-nav-item>
-          <b-nav-item href="#/compras">Comprar</b-nav-item>
+          <b-nav-item id="navitem" href="#/">HORUS</b-nav-item>
+          <b-nav-item id="navitem" href="#/products">Productos</b-nav-item>
+          <b-nav-item id="navitem" href="#/build">Armá tu Build</b-nav-item>
+          <b-nav-item id="navitem" href="#/contact">Contacto</b-nav-item>
+          <b-nav-item id="navitem" href="#/compras">Comprar</b-nav-item>
+          <b-nav-item id="navitem" href="#/noticias">Noticias</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
       <!-- Mostrar boton LOGIN si no hay usuario conectado y la pagina actual no es login -->
-      <b-button
+      <b-button variant="light"
         v-if="getCurrentUser === null && this.$route.path !== '/login'"
         class="ml-auto"
         @click="login"
@@ -21,7 +22,7 @@
         INGRESAR
       </b-button>
       <!-- Mostrar boton CREAR CUENTA si no hay usuario conectado y la pagina actual no es login -->
-      <b-button
+      <b-button variant="light"
         v-if="getCurrentUser === null && this.$route.path !== '/createAccount'"
         class="ml-auto"
         @click="createAccount"
@@ -92,8 +93,11 @@ export default {
 </script>
 
 <style scoped>
+ .navbar.navbar-dark.bg-dark{
+    background-color: #063972!important;
+ }
 
-.Usuario {
-  background: red;
-}
+ .navitem {
+   color: white;
+ }
 </style>
